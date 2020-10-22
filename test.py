@@ -44,7 +44,7 @@ while timer <= 86401:
         timer += 1
     if timer == 86401: #when timer hits 86401, Tweet th latest instance and print confirmation along with instance number
         api.update_status(matches[instance])
-        print("Just tweeted this:" matches[instance])
+        print("Just tweeted this:", matches[instance])
         print("Instance number:", instance)
         timer = 0
         instance+=1 #increment wang instance counter
