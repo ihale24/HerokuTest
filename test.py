@@ -3,6 +3,16 @@ import time
 import tweepy
 import re
 
+consumer_key = "aYvZwGA0cQybvozQmmJzy3a7U"
+consumer_secret = "zDZ3oDVzXQKx2ynIErL4xg8K6AbqrUSfmyZQscGDie42M9upCa"
+bearer_token = "AAAAAAAAAAAAAAAAAAAAAGNIHAEAAAAAQf8mtmgLxvHsusDoa5PzpdkviME%3DQ7vf4dNyUpsbgaNnqhiILouK5WNvs6GSxwjUlMgQStAnTt3hTX"
+access_key = "1250139000444198913-JUbjRvIdhaJLs8wDusfvYkhhkgoEbF"
+access_secret = "SlNRbqJ2W5OEjBaypeElp7zLUVcjh5bgMDvIP5VvmEKWF"
+
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_key, access_secret)
+api = tweepy.API(auth)
+
 with open("GenericTextDoc.txt", "r", encoding = "utf-8") as f:
     text = f.read()
 
