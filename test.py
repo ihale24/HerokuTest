@@ -13,18 +13,18 @@ auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
-with open("GenericTextDoc.txt", "r", encoding = "utf-8") as f:
+with open("Harry_Potter_and_the_Philosopher's_Stone.txt", "r", encoding = "utf8") as f:
     text = f.read()
 
 
-TWEET_instance = re.compile(r'TWEET')
-match = TWEET_instance.findall(text)
+Hagrid_instance = re.compile(r'Hagrid')
+match = Hagrid_instance.findall(text)
 
 i = 0
 while i <= 16:
     if i < 16:
         time.sleep(1)
-        print("Tweeting in ", 15 - i, "seconds.")
+        print("Finding Hagrid ", 15 - i, "seconds.")
         i += 1
     if i == 16:
         print(match)
