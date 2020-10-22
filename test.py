@@ -20,6 +20,10 @@ text_watermark_stripped = re.sub(r'Page |[^.]*Harry Potter and the Philosophers 
 text_mrs_stripped = re.sub(r'Mrs.', 'Mrs', text_watermark_stripped)
 text_mr_stripped = re.sub(r'Mr\.', 'Mr', text_mrs_stripped)
 
+text_wang_replacement = re.sub(r'[Ww]and ','wang ', text_mr_stripped)
+text_plural_wang_replacement = re.sub(r'[Ww]ands ','wangs ', text_wang_replacement)
+text_period_wang_replacement = re.sub(r'[Ww]and\.', 'wang.', text_plural_wang_replacement)
+
 Hagrid_instance = re.compile(r'Hagrid')
 match = Hagrid_instance.findall(text)
 
