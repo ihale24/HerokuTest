@@ -1,4 +1,3 @@
-#This is a test.
 import time
 import tweepy
 import re
@@ -15,7 +14,7 @@ auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
 #opening Harry Potter text file
-with open("Harry_Potter_and_the_Philosopher's_Stone.txt", "r", encoding = "utf8") as f:
+with open("C:\\Users\\Isaac\\Anaconda3\\THIS_FOLDER_CONTAINS_CODE\\HerokuTest\\Harry_Potter_and_the_Philosopher's_Stone.txt", "r", encoding = "utf8") as f:
     text = f.read()
 
 #stripping files of watermarks, Mrs. and Mr.
@@ -32,19 +31,17 @@ text_period_wang_replacement = re.sub(r'[Ww]and\.', 'wang.', text_plural_wang_re
 wang_instance = re.compile(r'[^.?!]*[.?!][^.?!]*?wang[^.]*?[\.\?\!]')
 matches = wang_instance.findall(text_period_wang_replacement)
 
-#establish wang instance counter
-instance = 16
 
-#set up timer
-timer = 0
-while timer <= 86401: 
-    if timer < 86401: #while less than 86401, print countdown every second and increment timer
+instance = 18 #establish wang instance counter
+timer = 0 #set up timer
+
+while timer <= 43201: 
+    if timer < 43201: #while less than 43201, print countdown every second and increment timer
         time.sleep(1)
-        print("Tweeting next quote in", 86400 - timer, "seconds.")
+        print("Tweeting next quote in", 43200 - timer, "seconds. Instance number:", instance)
         timer += 1
-    if timer == 86401: #when timer hits 86401, Tweet th latest instance and print confirmation along with instance number
+    if timer == 43201: #when timer hits 43201, Tweet the latest instance and print confirmation along with instance number
         api.update_status(matches[instance])
         print("Just tweeted this:", matches[instance])
-        print("Instance number:", instance)
-        timer = 0
         instance+=1 #increment wang instance counter
+        timer = 0
