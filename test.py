@@ -14,7 +14,8 @@ auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
 #opening Harry Potter text file
-with open("Harry_Potter_and_the_Philosopher's_Stone.txt", "r", encoding = "utf8") as f:
+with open("C:\\Users\\Isaac\\Anaconda3\\THIS_FOLDER_CONTAINS_CODE\\HerokuTest\\Harry_Potter_and_the_Philosopher's_Stone.txt", "r", encoding = "utf8") as f:
+   #for testing: C:\\Users\\Isaac\\Anaconda3\\THIS_FOLDER_CONTAINS_CODE\\HerokuTest\\Harry_Potter_and_the_Philosopher's_Stone.txt
     text = f.read()
 
 #stripping files of watermarks, Mrs. and Mr.
@@ -24,7 +25,8 @@ text_mr_stripped = re.sub(r'Mr\.', 'Mr', text_mrs_stripped)
 
 #replacing "wand" in its various forms with "wang"
 text_wang_replacement = re.sub(r'[Ww]and ','wang ', text_mr_stripped)
-text_plural_wang_replacement = re.sub(r'[Ww]ands ','wangs ', text_wang_replacement)
+text_comma_wang_replacement = re.sub(r'[Ww]and,','wang,', text_wang_replacement)
+text_plural_wang_replacement = re.sub(r'[Ww]ands ','wangs ', text_comma_wang_replacement)
 text_period_wang_replacement = re.sub(r'[Ww]and\.', 'wang.', text_plural_wang_replacement)
 
 #finding all instances of the word "wang" along with its preceeding sentence
@@ -32,16 +34,16 @@ wang_instance = re.compile(r'[^.?!]*[.?!][^.?!]*?wang[^.]*?[\.\?\!]')
 matches = wang_instance.findall(text_period_wang_replacement)
 
 
-instance = 18 #establish wang instance counter
+instance = 22  #establish wang instance counter
 timer = 0 #set up timer
 
-while timer <= 43201: 
-    if timer < 43201: #while less than 43201, print countdown every second and increment timer
+while timer <= 11: 
+    if timer < 11: #while less than 11, print countdown every second and increment timer
         time.sleep(1)
-        print("Tweeting next quote in", 43200 - timer, "seconds. Instance number:", instance)
+        print("Tweeting next quote in", 10 - timer, "seconds. Instance number:", instance)
         timer += 1
-    if timer == 43201: #when timer hits 43201, Tweet the latest instance and print confirmation along with instance number
-        api.update_status(matches[instance])
+    if timer == 11: #when timer hits 11, Tweet the latest instance and print confirmation along with instance number
+        #api.update_status(matches[instance])
         print("Just tweeted this:", matches[instance])
         instance+=1 #increment wang instance counter
         timer = 0
