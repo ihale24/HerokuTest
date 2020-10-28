@@ -14,7 +14,7 @@ auth.set_access_token(access_key, access_secret)
 api = tweepy.API(auth)
 
 #opening Harry Potter text file
-with open("C:\\Users\\Isaac\\Anaconda3\\THIS_FOLDER_CONTAINS_CODE\\HerokuTest\\Harry_Potter_and_the_Philosopher's_Stone.txt", "r", encoding = "utf8") as f:
+with open("Harry_Potter_and_the_Philosopher's_Stone.txt", "r", encoding = "utf8") as f:
    #for testing: C:\\Users\\Isaac\\Anaconda3\\THIS_FOLDER_CONTAINS_CODE\\HerokuTest\\Harry_Potter_and_the_Philosopher's_Stone.txt
     text = f.read()
 
