@@ -34,16 +34,16 @@ wang_instance = re.compile(r'[^.?!]*[.?!][^.?!]*?wang[^.]*?[\.\?\!]')
 matches = wang_instance.findall(text_period_wang_replacement)
 
 
-instance = 22  #establish wang instance counter
+instance = 23  #establish wang instance counter
 timer = 0 #set up timer
 
-while timer <= 11: 
-    if timer < 11: #while less than 11, print countdown every second and increment timer
+while timer <=43201: 
+    if timer <43201: #while less than43201, print countdown every second and increment timer
         time.sleep(1)
-        print("Tweeting next quote in", 10 - timer, "seconds. Instance number:", instance)
+        print("Tweeting next quote in", 43200 - timer, "seconds. Instance number:", instance)
         timer += 1
-    if timer == 11: #when timer hits 11, Tweet the latest instance and print confirmation along with instance number
-        #api.update_status(matches[instance])
+    if timer ==43201: #when timer hits 43201, Tweet the latest instance and print confirmation along with instance number
+        api.update_status(matches[instance])
         print("Just tweeted this:", matches[instance])
         instance+=1 #increment wang instance counter
         timer = 0
