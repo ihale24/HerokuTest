@@ -33,17 +33,20 @@ text_period_wang_replacement = re.sub(r'[Ww]and\.', 'wang.', text_plural_wang_re
 wang_instance = re.compile(r'[^.?!]*[.?!][^.?!]*?wang[^.]*?[\.\?\!]')
 matches = wang_instance.findall(text_period_wang_replacement)
 
-
-instance = 23  #establish wang instance counter
 timer = 0 #set up timer
 
-while timer <=43201: 
-    if timer <43201: #while less than43201, print countdown every second and increment timer
+while timer <= 61: 
+    if timer < 61: #while less than 61, print countdown every second and increment timer
         time.sleep(1)
-        print("Tweeting next quote in", 43200 - timer, "seconds. Instance number:", instance)
+        print("Tweeting next quote in", 60 - timer, "seconds.")
         timer += 1
-    if timer ==43201: #when timer hits 43201, Tweet the latest instance and print confirmation along with instance number
-        #api.update_status(matches[instance])
-        print("Just tweeted this:", matches[instance])
+    if timer == 61: #when timer hits 61, Tweet the latest instance and print confirmation along with instance number
+        with open("wang_instance.txt", "r", encoding = "utf8") as w:
+        #for testing, use: C:\\Users\\Isaac\\Anaconda3\\THIS_FOLDER_CONTAINS_CODE\\HerokuTest\\wang_instance.txt
+            instance = int(w.read())
+        api.update_status(matches[instance]) #update status with quote corresponding to instance number
+        print("Just tweeted this:", matches[instance], "Instance number: ", instance)
         instance+=1 #increment wang instance counter
+        with open("wang_instance.txt", "w", encoding = "utf8") as n:
+            n.write(str(instance)) #rewrite text document with new instance number
         timer = 0
