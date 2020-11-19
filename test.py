@@ -35,12 +35,12 @@ matches = wang_instance.findall(text_period_wang_replacement)
 
 timer = 0 #set up timer
 
-while timer <= 61: 
-    if timer < 61: #while less than 61, print countdown every second and increment timer
+while timer <= 28801: 
+    if timer < 28801: #while less than 28801, print countdown every second and increment timer
         time.sleep(1)
-        print("Tweeting next quote in", 60 - timer, "seconds.")
+        print("Tweeting next quote in", 28800 - timer, "seconds.")
         timer += 1
-    if timer == 61: #when timer hits 61, Tweet the latest instance and print confirmation along with instance number
+    if timer == 28801: #when timer hits 28801, Tweet the latest instance and print confirmation along with instance number
         with open("wang_instance.txt", "r", encoding = "utf8") as w:
         #for testing, use: C:\\Users\\Isaac\\Anaconda3\\THIS_FOLDER_CONTAINS_CODE\\HerokuTest\\wang_instance.txt
             instance = int(w.read())
